@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ASG Immigration Consultants</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2980b9;
+        }
+
+        /* About Section Styles */
+        .about-hero {
+            padding: 150px 5% 80px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about-hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-section {
+            padding: 80px 5%;
+            background: #f5f5f5;
+        }
+
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .mission-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .mission-box h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .mission-box p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .team-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .team-container h2 {
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .team-description {
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .values-section {
+            padding: 80px 5%;
+            background: #f5f5f5;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .value-item h3 {
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+
+        .value-item p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .mission-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .about-section {
+            padding: 80px 5%;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .about-row:nth-child(even) {
+            direction: rtl;
+        }
+
+        .about-row:nth-child(even) .about-text {
+            direction: ltr;
+        }
+
+        .about-text {
+            padding: 20px;
+        }
+
+        .about-text h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .team-member h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .designation {
+            color: #2980b9;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .about-row {
+                grid-template-columns: 1fr;
+            }
+            .about-row:nth-child(even) {
+                direction: ltr;
+            }
+            .team-members {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="/index.html" style="text-decoration: none; display: flex; align-items: center;">
+                <img src="/logo.png" alt="ASG Logo" class="logo">
+                <span class="company-name">ASG Immigration Consultants W.L.L</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="/index.html">HOME</a>
+            <a href="/services.html">SERVICES</a>
+            <a href="/contact.html">CONTACT US</a>
+            <a href="/about.html">ABOUT US</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <h1>About ASG Immigration Consultants</h1>
+        <p>Your Trusted Partner in Immigration Services</p>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-section">
+        <div class="mission-container">
+            <div class="mission-box">
+                <h2>Our Mission</h2>
+                <p>To provide exceptional immigration consulting services with integrity, professionalism, and dedication. We strive to make the immigration process smooth and successful for our clients while maintaining the highest standards of service.</p>
+            </div>
+            <div class="mission-box">
+                <h2>Our Vision</h2>
+                <p>To be the leading immigration consultancy in Bahrain, recognized for our expertise, reliability, and commitment to client success. We aim to help individuals and families achieve their dreams of international mobility.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Sections -->
+    <section class="about-section">
+        <div class="about-container">
+            <!-- First Row -->
+            <div class="about-row">
+                <div class="about-text">
+                    <h2>Our Journey</h2>
+                    <p>ASG Immigration Consultants W.L.L has been at the forefront of immigration consulting in Bahrain. Founded with a vision to simplify the complex immigration process, we have helped countless individuals and families achieve their dreams of international mobility.</p>
+                    <p>Our expertise spans across multiple countries and visa categories, making us a one-stop solution for all immigration needs.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="Immigration Consulting" class="about-image">
+            </div>
+
+            <!-- Second Row -->
+            <div class="about-row">
+                <div class="about-text">
+                    <h2>Our Expertise</h2>
+                    <p>With years of experience in immigration consulting, our team has developed deep expertise in handling various types of visa applications. We specialize in work permits, student visas, and permanent residency applications for multiple countries.</p>
+                    <p>Our success rate speaks volumes about our commitment to excellence and attention to detail.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0" alt="Expert Team" class="about-image">
+            </div>
+
+            <!-- Third Row -->
+            <div class="about-row">
+                <div class="about-text">
+                    <h2>Our Approach</h2>
+                    <p>We believe in providing personalized solutions tailored to each client's unique needs. Our approach combines professional expertise with a human touch, ensuring that every client receives the attention and guidance they deserve.</p>
+                    <p>We maintain complete transparency throughout the process, keeping our clients informed at every step.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="Client Meeting" class="about-image">
+            </div>
+
+            <!-- Fourth Row -->
+            <div class="about-row">
+                <div class="about-text">
+                    <h2>Our Commitment</h2>
+                    <p>At ASG Immigration Consultants, we are committed to maintaining the highest standards of professional ethics and service quality. Our dedication to client success has made us one of the most trusted names in immigration consulting.</p>
+                    <p>We continuously update our knowledge and processes to stay ahead of changing immigration laws and requirements.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216" alt="Professional Service" class="about-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2>Our Leadership</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <h3>Mohammed Niyamath</h3>
+                    <p class="designation">Chief Executive Officer</p>
+                    <p>Leading ASG Immigration Consultants with vision and expertise, Mohammed Niyamath brings years of experience in immigration consulting. His leadership has been instrumental in establishing ASG as a trusted name in immigration services.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Shahbaz Ahmad</h3>
+                    <p class="designation">Lead Developer</p>
+                    <p>The technical brain behind our digital presence, Shahbaz Ahmad has developed our website and digital infrastructure. His expertise ensures that our online services remain cutting-edge and user-friendly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 ASG Immigration Consultants W.L.L</p>
+        <p>Website created by Shahbaz Ahmad</p>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canada Immigration - ASG Consultants</title>
+    <style>
+        /* Same base styles as australia.html */
+        /* ... */
+
+        .country-header {
+            padding: 120px 5% 60px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1517935706615-2717063c2225');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .apply-button {
+            background: #FF0000;  /* Canadian red */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: background 0.3s;
+        }
+
+        .apply-button:hover {
+            background: #CC0000;
+        }
+
+        .submit-btn {
+            background: #FF0000;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background: #CC0000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="/index.html" style="text-decoration: none; display: flex; align-items: center;">
+                <img src="/logo.png" alt="ASG Logo" class="logo">
+                <span class="company-name">ASG Immigration Consultants W.L.L</span>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="/index.html">HOME</a>
+            <a href="/services.html">SERVICES</a>
+            <a href="/contact.html">CONTACT US</a>
+            <a href="/about.html">ABOUT US</a>
+        </div>
+    </nav>
+
+    <!-- Country Header -->
+    <header class="country-header">
+        <h1>Canada Immigration Services</h1>
+        <p>Your Path to Canadian Dream</p>
+        <button class="apply-button" onclick="showApplicationForm()">Apply Now</button>
+    </header>
+
+    <!-- Application Form Popup -->
+    <div id="applicationPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closeApplicationForm()">&times;</span>
+            <h2>Apply for Canada Immigration</h2>
+            <form id="applicationForm" onsubmit="submitApplication(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="18" max="65" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="visaType">Visa Type</label>
+                    <select id="visaType" name="visaType" required>
+                        <option value="">Select Visa Type</option>
+                        <option value="Permanent Residency">Permanent Residency</option>
+                        <option value="Work Permit">Work Permit</option>
+                        <option value="Student Visa">Student Visa</option>
+                        <option value="Visit Visa">Visit Visa</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showApplicationForm() {
+            document.getElementById('applicationPopup').style.display = 'block';
+        }
+
+        function closeApplicationForm() {
+            document.getElementById('applicationPopup').style.display = 'none';
+        }
+
+        async function submitApplication(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            data.country = 'Canada'; // Add country to form data
+            
+            try {
+                const response = await fetch('/api/applications', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert('Application submitted successfully!');
+                    closeApplicationForm();
+                    event.target.reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error submitting application. Please try again.');
+            }
+        }
+
+        // Close popup when clicking outside
+        window.onclick = (event) => {
+            if (event.target.className === 'popup') {
+                closeApplicationForm();
+            }
+        };
+    </script>
+</body>
+</html> 

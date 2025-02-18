@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASG Immigration Consultants W.L.L</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2980b9;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 5% 60px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 60px 5%;
+            background: #f5f5f5;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .team-member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 60px 5%;
+            background: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .review-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="/logo.png" alt="ASG Logo" class="logo">
+            <span class="company-name">ASG Immigration Consultants W.L.L</span>
+        </div>
+        <div class="nav-links">
+            <a href="/">HOME</a>
+            <a href="/services.html">SERVICES</a>
+            <a href="/contact.html">CONTACT US</a>
+            <a href="/about.html">ABOUT US</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to ASG Immigration Consultants</h1>
+        <p>Your Trusted Partner in Immigration Services Since 2018</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2 class="section-title">Our Leadership</h2>
+        <div class="about-grid">
+            <div class="team-member">
+                <img src="ceo.jpg" alt="CEO">
+                <h3>John Doe</h3>
+                <p>CEO & Founder</p>
+                <p>With over 15 years of experience in immigration consulting, John has helped thousands of families achieve their dreams of international relocation.</p>
+            </div>
+            <div class="team-member">
+                <img src="analyst.jpg" alt="Senior Analyst">
+                <h3>Jane Smith</h3>
+                <p>Senior Immigration Analyst</p>
+                <p>Jane specializes in complex immigration cases and has a success rate of 98% in visa approvals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <h2 class="section-title">Client Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <img src="client1.jpg" alt="Client">
+                <h3>Michael Brown</h3>
+                <p>"ASG helped me and my family move to Canada smoothly. Their expertise made the whole process stress-free."</p>
+            </div>
+            <div class="review-card">
+                <img src="client2.jpg" alt="Client">
+                <h3>Sarah Johnson</h3>
+                <p>"The team at ASG is highly professional. They guided me through every step of my Australian visa application."</p>
+            </div>
+            <div class="review-card">
+                <img src="client3.jpg" alt="Client">
+                <h3>David Wilson</h3>
+                <p>"Thanks to ASG, I got my work permit for Poland in record time. Highly recommended!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 ASG Immigration Consultants W.L.L</p>
+        <p>Website created by Shahbaz Ahmad</p>
+    </footer>
+</body>
+</html> 
